@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_app/presentation/AppBarFlatButton.dart';
+import 'package:portfolio_app/routes.dart';
 
 void main() {
   runApp(PortfolioApp());
@@ -13,27 +15,47 @@ class PortfolioApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(),
+      initialRoute: Routes.home,
+      routes: {
+        Routes.home: (context) => HomePage(),
+      }
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  HomePage({Key key}) : super(key: key);
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
   
     return Scaffold(
       appBar: AppBar(
+        elevation: 0.0,
+        shadowColor: Colors.white,
+        backgroundColor: Colors.white,
+        title: Text(
+          'PS',
+          style: TextStyle(
+            color: Colors.blue,
+          ),
+        ),
+        actions: <Widget>[
+          AppBarFlatButton(title: 'HOME', onPressed: null),
+          AppBarFlatButton(title: 'SERVICES', onPressed: null),
+          AppBarFlatButton(title: 'WORK', onPressed: null),
+          AppBarFlatButton(title: 'CONTACTS', onPressed: null),
+        ],
       ),
-      body: Center(),
+      body: Center(
+
+      ),
     );
   }
 }
